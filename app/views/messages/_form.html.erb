@@ -1,4 +1,4 @@
-<%= form_for(@message) do |f| %>
+<%= form_for(@message, html: {class: "form-horizontal" }) do |f| %>
   <% if @message.errors.present? %>
     <div class="alert alert-danger">
       <%= alert %>
@@ -12,10 +12,35 @@
     </div>
   <% end %>
 
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+  <!-- 名前フォーム -->
+  <div class="form-group">
+    <label class="col-sm-1 control-label" style="text-align: left;">名前：</label>
+    <div class="col-sm-11">
+      <%= f.text_field :name , placeholder: "煌木　太郎", class: "form-control" %>
+    </div>
+  </div>
+  
+  <!-- 年齢フォーム -->
+  <div class="form-group">
+    <label class="col-sm-1 control-label" style="text-align: left;">年齢：</label>
+    <div class="col-sm-11">
+      <%= f.text_field :age , placeholder: "22" , class: "form-control" %>
+    </div>
+  </div>
+  
+  <!-- 内容フォーム -->
+  <div class="form-group">
+    <label class="col-sm-1 control-label" style="text-align: left;">内容：</label>
+    <div class="col-sm-11">
+      <%= f.text_area :body , placeholder: "例）おはようございます。", class: "form-control" %>
+    </div>
+  </div>
+  
+  
+  <!-- 送信ボタン -->
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-11">
+      <%= f.submit class: "btn btn-sm btn-primary" %>    
+    </div>
+  </div>
 <% end %>
